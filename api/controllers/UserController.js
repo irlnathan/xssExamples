@@ -47,7 +47,8 @@ module.exports = {
       };
 
       return res.view('profile', {
-        name: foundUser.name
+        name: foundUser.name,
+        description: foundUser.description
       });
     });
   },
