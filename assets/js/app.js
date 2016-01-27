@@ -24,6 +24,7 @@ $(document).ready(function(){
   // Delete Cookie
   $('#delete-cookie-button').click(function(){
     document.cookie = "unsafe=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+    console.log('cookie deleted');
   });
 
   // Show Profile Unsafe
