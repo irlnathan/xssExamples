@@ -34,13 +34,6 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
-  },
-
-  '/profile': {
-    view: 'profile',
-    locals: { 
-      name: ''
-    }
   }
   /***************************************************************************
   *                                                                          *
