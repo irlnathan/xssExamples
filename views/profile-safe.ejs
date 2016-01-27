@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Profile using the EJS &lt;%= %> tag</h1>
+
+  <% if (_.isEmpty(name)) { %>
+    <h2>No profile</h2>
+  <% } else { %>
+  <h2>Name: <%- name %></h2>
+  <h3>Description: <%= description %></h3>
+  <% } %>
+
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <p>This page displays the name and description and illustrates what happens if you use HTML encode untrusted data.  The XSS attack script was stored when the user was created earlier and is now injected into the page using the &lt;%= %> tag which performs HTML escaping. When the page is rendered the script does not execute. </p> 
+      </div> <!-- class="panel-body" -->
+    </div> <!-- class="panel panel-default" -->
+  </div> <!-- class="col-md-12" -->
+</div> 

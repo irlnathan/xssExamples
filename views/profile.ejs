@@ -1,10 +1,23 @@
 <div class="container">
-  <h1>Profile</h1>
+  <h1>Profile using the EJS &lt;%- %> tag</h1>
 
   <% if (_.isEmpty(name)) { %>
     <h2>No profile</h2>
   <% } else { %>
-  Name: <%- name %>
-  Description: <%- description %>
+  <h2>Name: <%- name %></h2>
+  <h3>Description: <%- description %></h3>
   <% } %>
+
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <p>This page displays the name and description and illustrates what happens if you don't HTML encode untrusted data.  The XSS attack script was stored when the user was created earlier and is now injected into the page using the &lt;%- %> tag which performs no HTML escaping. When the page is rendered the script executes launching the attack.  The attack sends all unprotected cookies to another site through the image tag. Here's the log of badsite.herokuapp.com: </p>
+<pre><code>
+2016-01-27T21:34:35.642933+00:00 heroku[router]: at=info method=GET path="/collect.gif?cookie=unsafe=54321" host=badsite.herokuapp.com request_id=9bfcc931-b276-4fbf-9586-c64d3c4a7bba fwd="72.177.88.42" dyno=web.1 connect=0ms service=5ms status=404 bytes=314
+</code></pre> 
+<p> Note: the cookie in the log.</p> 
+        <p> Two things to recognize here.  First, by using &lt;%= %> the script would not execute because of HTML escaping.  Second, Sails uses HTTP only cookies which are not accessible by JavaScript and therefore not in the log. </p>
+      </div> <!-- class="panel-body" -->
+    </div> <!-- class="panel panel-default" -->
+  </div> <!-- class="col-md-12" -->
 </div> 
