@@ -1,7 +1,7 @@
 <div class="container">
   <div class="col-md-9">
   <div class="jumbotron">
-    <h1 class="text-center">Irl's World of Security</h1>
+    <h1 class="text-center">Irl's Security Emporium</h1>
     <p>I'm old and I quickly forget things I've learned.  Returning to this site adds cerebral breadcrumbs that hopefully trigger recall.</p>
   </div>
 
@@ -10,8 +10,29 @@
     The tests send requests to <a href="https://badsite.herokuapp.com">https://badsite.herokuapp.com</a>
   </p>
 
-  <h3><a href="https://csrftokenoff.herokuapp.com/">CSRF Attacks and Prevention</h3></a>
+  <h3><a href="https://csrftokenoff.herokuapp.com/">CSRF Attacks</h3></a>
   <p style="font-size: 21px; font-family: Helvetica Neue; font-weight: 200;">
     The simulated link uses <a href="https://badsite.herokuapp.com">https://badsite.herokuapp.com</a>
   </p>
+
+  <h3><a href="http://corstests.herokuapp.com/ajax/getRequestCorsOff">A GET request via AJAX to a resource with no CORS support.</h3></a>
+  <p style="font-size: 21px; font-family: Helvetica Neue; font-weight: 200;">
+  We're demonstrating what happens when you attempt to make a cross domain AJAX GET request to a Sails application <b>without</b> CORS support.
+  </p>
+
+  <h3><a href="http://corstests.herokuapp.com/ajax/getRequestCorsOn">A GET request via AJAX to a resource with no CORS support.</h3></a>
+  <p style="font-size: 21px; font-family: Helvetica Neue; font-weight: 200;">
+  We're demonstrating what happens when you attempt to make a cross domain AJAX GET request to a Sails application <b>with<b> CORS support.
+  </p>
+
+  <h3><a href="http://corstests.herokuapp.com/ajax/postRequestCorsOff">A POST request via AJAX to a resource with no CORS support.</h3></a>
+  <p style="font-size: 21px; font-family: Helvetica Neue; font-weight: 200;">
+  We're demonstrating what happens when you attempt to make a cross domain AJAX POST request to a Sails application <b>without</b> CORS support.
+  </p>
+
+  <h3><a href="http://corstests.herokuapp.com/forms/formPostRequestCorsOn">A POST request via a form control to a resource with no CORS support.</h3></a>
+  <p style="font-size: 21px; font-family: Helvetica Neue; font-weight: 200;">
+  We're demonstrating what happens when you attempt to make a form-based cross domain POST request to a Sails application <b>without</b> CORS support.
+  </p>
+
 </div>
